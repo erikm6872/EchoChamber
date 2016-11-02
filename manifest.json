@@ -1,0 +1,27 @@
+{
+  "manifest_version": 2,
+
+  "name": "Echo Chamber",
+  "description": "Replaces all Facebook comments to generic, meaningless praise",
+  "version": "0.1",
+  "content_scripts": [{
+    "matches": ["https://www.facebook.com/*"],
+    "js": ["replace_comments.js"]
+  }],
+  "background": [{
+    "scripts": ["replace_comments.js"],
+    "persistent": false
+  }],
+  
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html",
+    "default_title": "Echo Chamber"
+  },
+  
+  "permissions": [
+    "activeTab",
+    "http://*/",
+    "https://www.facebook.com/*"
+  ]
+}
